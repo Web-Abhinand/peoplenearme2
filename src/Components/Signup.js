@@ -11,7 +11,7 @@ const Signup = () => {
     const [error,setError] = useState('');
     const [loading,setLoading] = useState(false);
 
-    function handleSubmit(e){
+    async function handleSubmit(e){
         e.preventDefault();
         console.log(emailRef.current.value);
         console.log(passwordRef.current.value);
@@ -20,13 +20,13 @@ const Signup = () => {
             console.log('Passwords do not match');
             return setError('Passwords do not match')
         }
-        else if(emailRef.current.value,passwordRef.current.value){
+        try{
             setError('');
             setLoading(true);
-            signup(emailRef.current.value,passwordRef.current.value);
+            await signup(emailRef.current.value,passwordRef.current.value);
             console.log('Account created')
         }
-        else{
+        catch{
             setError('Failed to create an account')
             console.log('account not created')
         }
@@ -36,7 +36,6 @@ const Signup = () => {
         <Card>
             <Card.Body>
                 <h2 className='text-center mb-4'>Sign Up</h2>
-                {currentUser && currentUser.email}
                 {error && <Alert className='alert alert-danger'>{error}</Alert>}
                 <Form onSubmit={handleSubmit}>
                     <Form.Group id='email'>
