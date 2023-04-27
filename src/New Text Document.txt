@@ -1,0 +1,17 @@
+look up onauthstate changed
+
+This code is used to subscribe to changes in the authentication state using Firebase's onAuthStateChanged function. The useEffect hook is used to run this subscription code only once, when the component mounts, by passing an empty dependency array as the second argument to useEffect ([]).
+
+The onAuthStateChanged function is called every time the authentication state changes, such as when a user logs in or logs out. The function passed to onAuthStateChanged is called with a user object representing the authenticated user, or null if there is no authenticated user.
+
+Within the function passed to onAuthStateChanged, the setCurrentUser function is used to update the currentUser state variable with the current user object. Additionally, the setLoading function is used to set the loading state variable to false, indicating that the authentication state has finished loading.
+
+The onAuthStateChanged function returns an unsubscribe function, which is returned from the useEffect hook. This unsubscribe function is called when the component unmounts to ensure that the subscription is properly cleaned up and avoid memory leaks.
+
+If there is no useEffect hook with the subscription to the authentication state, the application would not be aware of changes in the authentication state, such as when a user logs in or logs out. As a result, the currentUser state variable would not be updated with the current user object, and the application would not be able to properly manage the authentication state.
+
+Without the useEffect hook, the currentUser state variable would need to be manually updated every time the authentication state changes. This would require additional code and could be error-prone, as it would be easy to miss updates or not properly handle edge cases.
+
+Overall, using the useEffect hook with the onAuthStateChanged subscription is a convenient and reliable way to manage the authentication state in a React application using Firebase.
+
+// custom hook -> wrap a funtional component around a useState hook

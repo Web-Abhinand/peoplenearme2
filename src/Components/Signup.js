@@ -1,7 +1,9 @@
 import React, {useRef,useState} from 'react'
 import {Button,Form,Card,Alert} from 'react-bootstrap'
+import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { AuthProvieder } from '../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
     const emailRef=useRef();
@@ -10,7 +12,7 @@ const Signup = () => {
     const {signup,currentUser}=useAuth();
     const [error,setError] = useState('');
     const [loading,setLoading] = useState(false);
-
+    const navigate = useNavigate();
     async function handleSubmit(e){
         e.preventDefault();
         console.log(emailRef.current.value);
@@ -24,6 +26,7 @@ const Signup = () => {
             setError('');
             setLoading(true);
             await signup(emailRef.current.value,passwordRef.current.value);
+            navigate('/');
             console.log('Account created')
         }
         catch{
@@ -54,11 +57,10 @@ const Signup = () => {
                 </Form>
             </Card.Body>
         </Card>
-        <div className='w-100 text-center mt-2'>
-            Already have an account? Log In
+        <div className='w-100 text-center mt-2 py-2'>
+            Already have an account? <Link to='/login'>Log In</Link>
         </div>
     </>
   )
 }
-
 export default Signup

@@ -3,14 +3,14 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
 const firebaseConfig = {
-  apiKey: "AIzaSyCddgUaykT_B0tZtWgEluSZKkgZHj-FCwo",
-  authDomain: "fire-signup-516e0.firebaseapp.com",
-  databaseURL: "https://fire-signup-516e0-default-rtdb.firebaseio.com",
-  projectId: "fire-signup-516e0",
-  storageBucket: "fire-signup-516e0.appspot.com",
-  messagingSenderId: "1008779221141",
-  appId: "1:1008779221141:web:0647a19139177bbe80e39c",
-  measurementId: "G-LNCSZLPDZP"
+  apiKey: "AIzaSyBrm7O3az7E2ModvyuQhHcWZ9jpKLnyXDA",
+  authDomain: "myapp-7be90.firebaseapp.com",
+  databaseURL: "https://myapp-7be90.firebaseio.com",
+  projectId: "myapp-7be90",
+  storageBucket: "myapp-7be90.appspot.com",
+  messagingSenderId: "918462303644",
+  appId: "1:918462303644:web:2289673a8070d1164d0c59",
+  measurementId: "G-83C8H51YNJ"
 };
 
 // Initialize Firebase
